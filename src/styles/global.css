@@ -1,3 +1,13 @@
+:root{
+    /**colors */
+    --primaryDarkColor: #1a1a1d;
+    --primaryColor: #c3073f;
+    --successColor: #0197f6;
+    --infoColor: #0197f6;
+    --errorColor: #f2af29;
+    --errorColor: #f2af29;
+}
+
 .global{
     margin: 100;
     padding: 0;
@@ -7,7 +17,8 @@
 
 body{
     font-family: sans-serif;
-    background: #eee;
+    background: var(--primaryDarkColor);
+    color: var(--primaryDarkColor);
 }
 
 html, body, #root {
@@ -16,10 +27,17 @@ html, body, #root {
 
 button{
     cursor: pointer;
+    background: var(--primaryColor);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
 }
 
 a{
     text-decoration: none;
+    color: var(--primaryColor);
 }
 
 ul{
