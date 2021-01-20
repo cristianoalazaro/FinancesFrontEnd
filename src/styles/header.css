@@ -1,0 +1,17 @@
+:root{
+    --primaryColor: #c3073f;
+}
+
+.nav{
+    background: var(--primaryColor);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    color: #fff;
+    margin: 0 10px 0;
+    font-weight: bold;
+}

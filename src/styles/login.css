@@ -1,3 +1,9 @@
-.title{
+body{
+    background-color: #DCDCDC;
+    padding: 50px;
+}
+
+h1{
     color: red;
+    font-size: 50px;
 }
