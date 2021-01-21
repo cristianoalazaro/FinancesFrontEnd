@@ -4,8 +4,7 @@ import '../styles/login.css';
 
 export default function Login() {
     return (
-        <div className='container'>
-            <h1 className='text-center'>FINANCES</h1>
+        <div>
             <form>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">E-mail</label>

@@ -1,13 +1,18 @@
 import React from 'react';
 
+import Header from './components/Header.js';
 import Login from './pages/Login.js';
 
-//import './styles/global.css';
+import './styles/global.css';
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <div className='container'>
+        <h1>FINANCES</h1>
+        <Header />
+        <Login />
+      </div>
     </div>
   );
 }

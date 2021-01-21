@@ -8,47 +8,8 @@
     --errorColor: #f2af29;
 }
 
-.global{
-    margin: 100;
-    padding: 0;
-    outline: none;
-    box-sizing: border-box;
-}
-
-body{
-    font-family: sans-serif;
-    background: var(--primaryDarkColor);
-    color: var(--primaryDarkColor);
-}
-
-html, body, #root {
-    height: 100%;
-}
-
-button{
-    cursor: pointer;
-    background: var(--primaryColor);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 700;
-}
-
-a{
-    text-decoration: none;
-    color: var(--primaryColor);
-}
-
-ul{
-    list-style: none;
-}
-
-.container{
-    max-width: 360px;
-    background: #FFF;
-    margin: 30px auto;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+h1{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
 }
