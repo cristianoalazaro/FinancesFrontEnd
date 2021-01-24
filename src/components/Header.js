@@ -30,7 +30,7 @@ export default function Header() {
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/signin">Inscreva-se
+                                <Link className="nav-link" to="/signUp">Inscreva-se
                                 <i className="bi bi-box-arrow-in-right"></i></Link>
                             </li>
                         </ul>
