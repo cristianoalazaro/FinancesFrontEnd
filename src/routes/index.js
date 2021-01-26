@@ -4,7 +4,7 @@ import {Switch} from 'react-router-dom';
 import MyRoute from './MyRoute';
 import Index from '../pages/Index';
 import Login from '../pages/Login';
-import SignUp from '../pages/SignUp'
+import SignUp from '../pages/SignUp';
 import Page404 from '../pages/Page404';
 
 export default function Routes(){
