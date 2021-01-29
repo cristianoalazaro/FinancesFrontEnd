@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import isEmail from 'validator/lib/isEmail';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 import '../styles/login.css';
 import * as actions from '../store/modules/auth/actions';
+import Loading from '../components/loading';
 
 export default function Login() {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const isLoading = useSelector(state=>state.auth.isLoading);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -37,14 +40,16 @@ export default function Login() {
 
         try{
             dispatch(actions.loginRequest({email, password}));
+
             history.push('/');
         } catch(error) {
 
-        }
+        } 
     }
 
     return (
         <div>
+            <Loading isLoading={isLoading} />
             <form>
                 <h2>FAÇA SEU LOGIN</h2>
                 <div className="mb-3">

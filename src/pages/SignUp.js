@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom';
 
 import '../styles/login.css';
 import axios from '../services/axios';
+import Loading from '../components/loading';
 
 export default function SignUp() {
     let history = useHistory();
@@ -13,6 +14,7 @@ export default function SignUp() {
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (event)=>{
         event.preventDefault();
@@ -40,18 +42,22 @@ export default function SignUp() {
         }
 
         if (formErrors) return;
+        setIsLoading(true);
         try{
             await axios.post('/users', {name, lastname, email, password});
             toast.success('Usuário cadastrado com sucesso!');
+            setIsLoading(false);
             history.push('/');
         }catch(error){
             const errors = error.response.data;
             errors.map(error=>toast.error(error));
-        }
+            setIsLoading(false);
+        } 
     }
 
     return (
         <div>
+            <Loading isLoading={isLoading} />
             <h2>CRIE SUA CONTA</h2>
             <form>
             <div className="mb-3">

@@ -1,9 +1,24 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import '../styles/header.css';
+import * as actions from '../store/modules/auth/actions';
 
 export default function Header() {
+    const dispatch = useDispatch();
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const user = useSelector(state => state.auth.user.email);
+
+    const handleLogout = (event) => {
+        event.preventDefault();
+        dispatch(actions.loginFailure());
+    }
+
+    const handleEdit = (event)=>{
+        event.preventDefault();
+        
+    }
 
     return (
         <div>
@@ -25,19 +40,33 @@ export default function Header() {
                                 <i className="bi bi-house-fill"></i></Link>
                             </li>
 
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/login">Login<i className="bi bi-door-open">
+                            {!isLoggedIn ?
+                                (<li className="nav-item">
+                                    <Link className="nav-link" to="/login"> Login<i className="bi bi-door-open">
                                     </i></Link>
-                            </li>
+                                </li>) :
+                                (
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/logout" onClick={handleLogout}>
+                                            Logout<i className="bi bi-door-closed">
+                                            </i></Link>
+                                    </li>)}
 
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/signUp">Inscreva-se
+                            {!isLoggedIn &&
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/signUp">Inscreva-se
                                 <i className="bi bi-box-arrow-in-right"></i></Link>
-                            </li>
+                                </li>}
+                            {isLoggedIn &&
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="" onClick={handleEdit}>
+                                        {user}
+                                    </Link>
+                                </li>}
                         </ul>
                     </div>
                 </div>
             </nav>
-        </div>
+        </div>  
     )
 }
