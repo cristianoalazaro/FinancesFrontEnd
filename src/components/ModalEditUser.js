@@ -1,20 +1,68 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export default function ModalEditUser() {
+import '../styles/modal.css';
+
+export default function ModalEditUser({ onClose }) {
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+    });
+
+    const handleModalClose = () => {
+        onClose(null);
+    }
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Escape') {
+            onClose(null);
+        }
+    }
+
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+    }
+
     return (
-        <div className="modal" tabindex="-1">
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Modal title</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div className='modalUser'>
+            <div className='container'>
+                <div className='modal-main'>
+                    <div className='modal-title'>
+                        <h5 className='text-center'>EDITAR USUÁRIO</h5>
+                        <hr />
                     </div>
-                    <div className="modal-body">
-                        <p>Modal body text goes here.</p>
+                    <div className='modal-body'>
+                        <form>
+                            <h2>FAÇA SEU LOGIN</h2>
+                            <div className="mb-3">
+                                <label htmlFor="name" className="form-label">Nome</label>
+                                <input type="text" className="form-control" id="name"
+                                    aria-describedby="emailHelp" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="lastname" className="form-label">Sobrenome</label>
+                                <input type="text" className="form-control" id="lastname"
+                                    aria-describedby="emailHelp" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="email" className="form-label">E-mail</label>
+                                <input type="email" className="form-control" id="email"
+                                    aria-describedby="emailHelp" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="password" className="form-label">Senha</label>
+                                <input type="password" className="form-control" id="password" />
+                            </div>
+                            <button type="submit" className="btn btn-primary" onClick={handleSubmit} >
+                                Salvar
+                            </button>
+                        </form >
+
+                        <hr />
                     </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
+                    <div className='modal-footer'>
+                        <button className='btn btn-secondary' onClick={handleModalClose}>X</button>
                     </div>
                 </div>
             </div>

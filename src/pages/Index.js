@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../services/axios';
 
 import Loading from '../components/loading';
 
