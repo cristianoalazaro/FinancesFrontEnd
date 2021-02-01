@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import '../styles/header.css';
+
 import * as actions from '../store/modules/auth/actions';
 import ModalEditUser from '../components/ModalEditUser';
 
 export default function Header() {
-    const [showModal , setShowModal] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const dispatch = useDispatch();
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -18,13 +19,13 @@ export default function Header() {
         dispatch(actions.loginFailure());
     }
 
-    const handleModal = (event)=>{
+    const handleModalOpen = (event)=>{
         event.preventDefault();
-        setShowModal(true);        
+        setIsModalOpen(true);   
     }
 
-    const closeModal = ()=>{
-        setShowModal(false);
+    const handleModalClose = ()=>{
+        setIsModalOpen(false);
     }
 
     return (
@@ -66,7 +67,7 @@ export default function Header() {
                                 </li>}
                             {isLoggedIn &&
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="" onClick={handleModal}>
+                                    <Link className="nav-link" to="" onClick={handleModalOpen}>
                                         {user}
                                     </Link>
                                 </li>}
@@ -75,7 +76,7 @@ export default function Header() {
                 </div>
             </nav>
 
-            {showModal && <ModalEditUser onClose={closeModal} />}
+            {isModalOpen && <ModalEditUser onClose={handleModalClose}/>}
         </div>  
     )
 }

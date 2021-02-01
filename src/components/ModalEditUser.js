@@ -1,38 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import Modal from 'react-modal';
 
 import '../styles/modal.css';
 
+Modal.setAppElement('#root');
+
 export default function ModalEditUser({ onClose }) {
-    useEffect(() => {
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        }
-    });
-
-    const handleModalClose = () => {
+    const handleClose = () => {
         onClose(null);
-    }
-
-    const handleKeyDown = (event) => {
-        if (event.key === 'Escape') {
-            onClose(null);
-        }
-    }
-
-    const handleSubmit = (event)=>{
-        event.preventDefault();
     }
 
     return (
         <div className='modalUser'>
             <div className='container'>
                 <div className='modal-main'>
-                    <div className='modal-title'>
+                    <div className='modal-title1'>
                         <h5 className='text-center'>EDITAR USUÁRIO</h5>
                         <hr />
                     </div>
-                    <div className='modal-body'>
+                    <div className='modal-body1'>
                         <form>
                             <h2>FAÇA SEU LOGIN</h2>
                             <div className="mb-3">
@@ -54,18 +40,19 @@ export default function ModalEditUser({ onClose }) {
                                 <label htmlFor="password" className="form-label">Senha</label>
                                 <input type="password" className="form-control" id="password" />
                             </div>
-                            <button type="submit" className="btn btn-primary" onClick={handleSubmit} >
+                            <button type="submit" className="btn btn-primary" onClick={''} >
                                 Salvar
                             </button>
                         </form >
 
                         <hr />
                     </div>
-                    <div className='modal-footer'>
-                        <button className='btn btn-secondary' onClick={handleModalClose}>X</button>
+                    <div className='modal-footer1'>
+                        <button className='btn btn-secondary' onClick={handleClose}>X</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
+
