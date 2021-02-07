@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import isEmail from 'validator/lib/isEmail';
 import {useDispatch, useSelector} from 'react-redux';
-import {useHistory} from 'react-router-dom';
 
 import '../styles/login.css';
 import * as actions from '../store/modules/auth/actions';
+import * as userActions from '../store/modules/user/action';
 import Loading from '../components/loading';
 
 export default function Login() {
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const isLoading = useSelector(state=>state.auth.isLoading);
 
@@ -36,8 +35,7 @@ export default function Login() {
 
         try{
             dispatch(actions.loginRequest({email, password}));
-
-            history.push('/');
+            dispatch(userActions.getUser({email}));
         } catch(error) {
 
         } 
