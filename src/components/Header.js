@@ -11,25 +11,27 @@ import ModalEditUser from '../components/ModalEditUser';
 
 export default function Header() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    //const [name, setName] = useState('');
 
     const dispatch = useDispatch();
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-    const userName = useSelector(state=>state.user.name);
-    const userLastname = useSelector(state=>state.user.lastname);
-    console.log('user2 ',userName);
+    const userName = useSelector(state=>state.auth.user.name);
+    const userLastname = useSelector(state=>state.auth.user.lastname);
+    //console.log('user2 ',userName);
 
     // useEffect(() => {
-    //     const getUser = async () => {
-    //         if (isLoggedIn === true) {
-    //             const result = await axios.get(`users/email/${email}`);
-    //             const user = result.data;
-    //             //setName(user.name);
-    //             //setLastname(user.lastname);
-    //             //dispatch(userActions.getUser({name, lastname}));
-    //         }
-    //     }
-    //     getUser();
-    // }, [isLoggedIn, userName]);
+        //const getUser = async () => {
+            //if (isLoggedIn === true) {
+                // const result = await axios.get(`users/email/${email}`);
+                // const user = result.data;
+                //setName(userName);
+                //console.log('name ',name);
+                //setLastname(user.lastname);
+                //dispatch(userActions.getUser({name, lastname}));
+            //}
+        //}
+        //getUser();
+    // }, [isLoggedIn]);
 
 const handleLogout = (event) => {
     event.preventDefault();

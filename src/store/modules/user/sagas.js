@@ -6,8 +6,8 @@ import axios from '../../../services/axios';
 
 function* getUser({payload}){
     try{
-        console.log('pp ',payload);
         const user = yield call(axios.get, `/users/email/${payload.email}`);
+        //console.log('user ',user.data);
         yield put(userActions.getUserSuccess({...user.data, payload}));
     } catch{
         
