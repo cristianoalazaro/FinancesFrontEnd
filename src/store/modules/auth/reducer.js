@@ -15,6 +15,7 @@ export default function reducer(state = initialState, action) {
             newState.token = action.payload.token;
             newState.user.name = action.payload.user.data.name;
             newState.user.lastname = action.payload.user.data.lastname;
+            newState.user.email = action.payload.user.data.email;
             newState.isLoading = false;
             return newState;
         }

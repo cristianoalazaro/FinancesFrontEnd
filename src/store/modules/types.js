@@ -5,7 +5,3 @@ export const BOTAO_CLICADO_FAILURE = 'BOTAO_CLICADO_FAILURE';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
-
-export const GET_USER = 'GET_USER';
-export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
-export const LOGOUT = 'LOGOUT';
