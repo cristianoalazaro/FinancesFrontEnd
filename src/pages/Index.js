@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Loading from '../components/loading';
+import MainIndex from '../components/MainIndex';
 
 export default function Index() {
     const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export default function Index() {
     return (
         <>
             <Loading isLoading={isLoading} />
-            <h1>Página Principal</h1>
+            <MainIndex />
         </>
     )
 }
