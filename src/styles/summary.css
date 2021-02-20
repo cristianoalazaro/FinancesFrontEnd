@@ -1,0 +1,23 @@
+:root{
+    --earning_color: #16a885;
+    --expense_color: #c0392b;
+}
+
+.containerSummary{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid brown;
+    border-radius: 5px;
+}
+
+.earningStyle{
+    color: var(--earning_color);
+}
+
+.expenseStyle{
+    color: var(--expense_color);
+}

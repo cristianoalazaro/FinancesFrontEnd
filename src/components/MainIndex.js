@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function MainIndex(){
+import Summary from './Summary';
+
+export default function MainIndex() {
     return (
         <div>
-            <labe>Receitas:</labe>
-            <labe>Despesas:</labe>
-            <labe>Saldo atual:</labe>
+            <Summary />
         </div>
     )
 }
