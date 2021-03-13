@@ -9,12 +9,18 @@ function* loginRequest({payload}){
     
     try{
         const response = yield call(axios.post,'/token',payload);
-        
+
         axios.defaults.headers.Authorization = `Bearer ${response.data.token}`;
         
-        const user = yield call(axios.get,`/users/email/${payload.email}`)
+        const user = yield call(axios.get,`/users/email/${payload.email}`);
         
         yield put(actions.loginSuccess({...response.data, ...payload,user}));
+
+        //const id = {'user': user.data._id}
+
+        //const transactions = yield call(axios.post,'/transaction/',id);
+
+        //yield put(actions.getTransactions({transactions}));
 
         toast.success('Login realizado com sucesso!');
 

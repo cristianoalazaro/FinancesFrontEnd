@@ -21,4 +21,11 @@ export function loginFailure(payload){
     }
 }
 
+export function getTransactions(payload){
+    return {
+        type: types.GET_TRANSACTIONS,
+        payload
+    }
+}
+
 
