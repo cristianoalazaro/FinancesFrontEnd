@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Loading from '../components/loading';
 import Summary from '../components/Summary';
+import Transactions from '../components/Transactions';
 import axios from '../services/axios';
 import * as actions from '../store/modules/auth/actions';
 
@@ -36,7 +37,6 @@ export default function Index() {
                     .reduce((totalEarnings, transaction) => {
                         return totalEarnings + transaction.value;
                     }, 0);
-                console.log('tot', totalEarnings);
 
                 const totalExpenses = transactions[0].filter(transaction =>
                     transaction.type === '-')
@@ -56,6 +56,7 @@ export default function Index() {
         <>
             <Loading isLoading={isLoading} />
             <Summary summary={summary} />
+            <Transactions transactions={transactions} />
         </>
     )
 }

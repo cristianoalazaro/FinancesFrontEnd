@@ -1,0 +1,31 @@
+.containerTransactionStyle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.dateTransactionStyle{
+    margin-right: 20px;
+    font-family: Consolas, monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.descriptionTransactionStyle{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+}
+
+.typeTransactionStyle{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.valueTransactionStyle{
+    text-align: right;
+    font-family: Consolas, monospace;
+    font-size: 1.8rem;
+}

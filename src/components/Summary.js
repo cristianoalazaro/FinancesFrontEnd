@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../styles/summary.css';
+import {formatMoney} from '../helpers/formatHelpers';
 
 export default function Summary({summary}) {
     return (
@@ -8,21 +9,24 @@ export default function Summary({summary}) {
             <span>
                 <strong>
                     Receitas:{' '}
-                    <span className='earningStyle'>{summary.totalEarnings || 0}</span>
+                    <span className='earningStyle'>{formatMoney(summary.totalEarnings) || 
+                    formatMoney(0)}</span>
                 </strong>
             </span>
 
             <span>
                 <strong>
                     Despesas:{' '}
-                    <span className='expenseStyle'>{summary.totalExpenses}</span>
+                    <span className='expenseStyle'>{formatMoney(summary.totalExpenses) || 
+                    formatMoney(0)}</span>
                 </strong>
             </span>
 
             <span>
                 <strong>
                     Saldo:{' '}
-                    <span className='balanceStyle'>{summary.balance}</span>
+                    <span className='balanceStyle'>{formatMoney(summary.balance) || 
+                    formatMoney(0)}</span>
                 </strong>
             </span>
         </div>
