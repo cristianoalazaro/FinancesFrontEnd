@@ -3,7 +3,6 @@ import React from 'react';
 import Transaction from './Transaction';
 
 export default function Transactions({ transactions }) {
-    console.log(transactions);
     if (transactions.length > 0) {
         return (
             <div>
